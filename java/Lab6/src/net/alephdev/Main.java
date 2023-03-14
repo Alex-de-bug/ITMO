@@ -6,7 +6,7 @@ public class Main {
     private static StorageManager storageManager;
     private static CommandManager commandManager;
     /**
-     * Lab 5, 369115
+     * Lab 6
      */
     public static void main(String[] args) {
         System.out.println("Система управления организациями");
