@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 
 
 public class Main {
+    //git
     public static void main(String[] args) throws FileNotFoundException {
         new Loader().startInput();
     }
