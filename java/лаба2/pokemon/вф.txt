@@ -1,0 +1,1 @@
+java -cp "C:\Users\Alex\Desktop\pokemon\Pokemon.jar" "C:\Users\Alex\Desktop\pokemon\untitled\src\Laba2.java"

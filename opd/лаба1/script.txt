@@ -1,0 +1,104 @@
+#!/bin/bash
+shopt -s globstar
+cd /home/studs/s367193
+mkdir lab0
+cd lab0
+echo "Развитые способности Rivalry" > beautifly3
+echo -e "Возможности \nOverland=2 Surface=8 Underwater=8 Jump=3 Power=1 Intelligence=4 \nGilled=0" > goldeen6 
+mkdir leavanny7
+cd leavanny7
+mkdir krabby
+echo -e "Способности \nSupersonic Bubblebeam Confuse Ray Wing \nAttack Headbutt Water Pulse Wide Guard Take Down Agility Air Slash \nAqua Ring Bounce Hydro Pump" > mantine
+echo -e "Ходы Covet Endeavor Fire Pledge \nHeat Wave Helping Hand Iron Tail Sleep Talk Snore \nSuperpower" > tepig
+mkdir whiscash
+echo -e "Возможности Overland=7 Surface=7 Underwater=7 \nBurrow7=0 Jump=2 Power=4 Intelligence=4 Fountain=0 \nGilled=0" > swampert
+cd ..
+mkdir rhydon1
+cd rhydon1
+mkdir slowbro
+echo "Тип диеты Herbivore" > ninjask
+echo -e "satk=3 sdef=6 \nspd=7" > skorupi
+mkdir bulbasaur
+echo "Тип покемона PSYCHIC NONE" > kadabra
+mkdir muk
+cd ..
+echo -e "Развитые \nспособности Intimidate" > scrafty9
+mkdir swampert3
+cd swampert3
+mkdir sentret
+mkdir sharpedo
+echo -e "Способности Tail Whip Bubble \nWithdraw Water Gun Bite Rapid Spin Protect Water Pulse Aqua Tail Skull\nBash Iron Defense Rain Dance Hydro Pump" > wartortle
+echo -e "satk=9 sdef=5 \nspd=7" > mothim
+echo "Тип покемона WATER NONE" > piplup
+cd /home/studs/s367193/lab0
+
+chmod u-w,g-r beautifly3
+chmod o-rwx,u=rw,g=w goldeen6
+chmod u=rwx,g=wx,o=rwx leavanny7
+chmod u=rwx,g=wx,o=rw leavanny7/krabby
+chmod go-rwx,u=r leavanny7/mantine
+chmod ug-rwx,o=r leavanny7/tepig
+chmod u=rx,g=rwx,o=wx leavanny7/whiscash
+chmod 444 leavanny7/swampert
+chmod 711 rhydon1
+chmod 305 rhydon1/slowbro
+chmod u-rwx,g=r,o=r rhydon1/ninjask
+chmod 400 rhydon1/skorupi
+chmod 555 rhydon1/bulbasaur
+chmod o-rwx,u=r,g=r rhydon1/kadabra
+chmod u=wx,g=rw,o=wx rhydon1/muk
+chmod o-rwx,u=r,g=r scrafty9
+chmod u=rx,g=rwx,o=rw swampert3
+chmod u=rwx,g=wx,o=rw swampert3/sentret
+chmod u=rx,g=rwx,o=rwx swampert3/sharpedo
+chmod g-rwx,u=r,o=r swampert3/wartortle
+chmod o-rwx,u=rw,g=r swampert3/mothim
+chmod ug-rwx,o=rw swampert3/piplup
+
+cp beautifly3 /home/studs/s367193/lab0/leavanny7/swampertbeautifly
+
+chmod u+wx rhydon1/skorupi
+chmod u+rwx swampert3/piplup
+cat swampert3/piplup rhydon1/skorupi > goldeen6_81
+chmod u-wx rhydon1/skorupi
+chmod u-rwx swampert3/piplup
+
+ln -s /home/studs/s367193/lab0/swampert3 Copy_93
+
+cp goldeen6_81 rhydon1/muk
+
+chmod u+w swampert3/
+ln /home/studs/s367193/lab0/scrafty9 swampert3/wartortlescrafty
+chmod u-w swampert3/
+
+chmod u+r leavanny7/tepig
+mkdir rec
+cp -R leavanny7 rec/
+mv rec/leavanny7 leavanny7/krabby/
+rm -r rec
+chmod u-r leavanny7/krabby/leavanny7/tepig
+chmod u-r leavanny7/tepig
+
+ln -s /home/studs/s367193/lab0/goldeen6 rhydon1/ninjaskgoldeen
+
+
+
+mkdir /home/studs/s367193/report
+(cat **/m* | wc -m | sort) > /home/studs/s367193/report/ans41
+(ls -R swampert3 | sort) > /home/studs/s367193/report/ans42
+(cat leavanny7/mantine leavanny7/tepig leavanny7/swampert rhydon1/ninjask rhydon1/skorupi rhydon1/kadabra 2>/dev/null | grep "e$" ) > /home/studs/s367193/report/ans43
+(ls -Rltr | grep 'mpe' | tail -3) > /home/studs/s367193/report/ans44
+(cat **/*t 2>/tmp/$$ | sort -r | cat -n) > /home/studs/s367193/report/ans45
+(cat **/m* | wc -m | sort) > /home/studs/s367193/report/ans46
+
+chmod u+wx scrafty9
+rm scrafty9
+chmod u+wx rhydon1/skorupi
+rm rhydon1/skorupi
+rm Copy_*
+chmod u+w swampert3/
+rm swampert3/wartortlescraf*
+chmod u-w swampert3/
+chmod -R u+rwx leavanny7
+rm -r leavanny7
+rmdir rhydon1/bulbasaur
