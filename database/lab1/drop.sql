@@ -1,0 +1,1 @@
+DROP TABLE Coloring_dinosaur, Location_dinosaur, Car_human, Location_human, Acquaintance, Human, Dinosaur, Gender, City, Country, Car, Coloring, Car_human_dn;
