@@ -1,0 +1,64 @@
+/* Основной цвет страницы и шрифта */
+body {
+    background-color: #FFB6C1; /* Розовый */
+    font-family: "Arial", sans-serif;
+}
+
+h1
+{
+    font-size: 48px;
+    text-shadow: -1px -1px #FFB6C1, 1px 1px #FF69B4, -3px 0 4px #000000;
+    font-family:"Segoe print", Arial, Helvetica, sans-serif;
+    color: #FFB6C1;
+    text-align: center; /* Выравнивание по центру */
+    margin: 0 auto; /* Горизонтальное выравнивание по центру */
+    padding: 100px 0 20px 0;
+    width: 838px;
+    /*background-image: url("#{resource['images/ken.png']}");*/
+}
+
+/* Стилизация кнопки */
+input {
+    font-size: 48px;
+    text-shadow: -1px -1px #FFB6C1, 1px 1px #FF69B4, -3px 0 4px #000000;
+    font-family:"Segoe print", Arial, Helvetica, sans-serif;
+    color: #FFB6C1;
+    text-align: center; /* Выравнивание по центру */
+    margin: 100px auto; /* Горизонтальное выравнивание по центру */
+    padding: 20px 0 20px 0;
+    width: 597px;
+    cursor: pointer;
+    background: url("#{resource['images/ken.png']}");
+    border-radius: 10px;
+    box-shadow: -2px -2px #FFB6C1, 2px 2px rgba(255, 105, 180, 0.66), -3px 0 4px #000000;
+
+}
+
+.btn{
+    text-align: center; /* Выравнивание по центру */
+    margin: 100px auto; /* Горизонтальное выравнивание по центру */
+    border-radius: 6%;
+}
+
+
+/* Стилизация ссылок */
+a {
+    color: #FF69B4; /* Глубокий розовый */
+    text-decoration: none;
+}
+
+.clock {
+    font-size: 80px;
+    text-shadow: -1px -1px #FFB6C1, 1px 1px #FF69B4, -3px 0 4px #000000;
+    font-family:"Segoe print", Arial, Helvetica, sans-serif;
+    color: #FFB6C1;
+    text-align: center; /* Выравнивание по центру */
+    margin: 0 auto; /* Горизонтальное выравнивание по центру */
+}
+
+/* Стилизация панели обновления */
+.p-poll-content {
+    border: 1px solid #FFB6C1; /* Розовая рамка */
+    background-color: #FFC0CB; /* Светлый розовый */
+    padding: 10px;
+}

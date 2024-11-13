@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/templLayout.xhtml">
+    <ui:define name="head">
+        <title>Lab3 - Try</title>
+        <h:outputStylesheet library="css" name="main.css" />
+    </ui:define>
+
+    <ui:define name="js">
+        <h:outputScript name="js/decart.js"/>
+        <h:outputScript name="js/main.js"/>
+    </ui:define>
+
+    <ui:define name="main">
+        <h1 class="neader_graph">График</h1>
+        <div id="dekaf">
+            <b:canvas id="coordinate-system"/>
+        </div>
+
+        <h:form id="form" styleClass="form">
+            <div class="form_sky">
+                <div class="x_panel">
+                    <label class="form__label">X: </label>
+                    <div>
+                        <div id="xBtn">
+                            <h:inputHidden id="X" name="x" value="#{user.x}">
+                                <f:validator validatorId="validatorX"/>
+                            </h:inputHidden>
+                            <p:commandButton id="x-m2" value="-2"/>
+                            <p:commandButton id="x-m15"  value="-1.5"/>
+                            <p:commandButton id="x-m1"  value="-1"/>
+                            <p:commandButton id="x-m05" value="-0.5"/>
+                            <p:commandButton id="x-m0"  value="0"/>
+                            <p:commandButton id="x-05"  value="0.5"/>
+                            <p:commandButton id="x-1"  value="1"/>
+                            <p:commandButton id="x-15"  value="1.5"/>
+                            <p:commandButton id="x-2" value="2"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="y_panel">
+                    <label class="form__label">Y:</label>
+                    <div>
+                        <p:inputText id="Y"
+                                     required="true" class="" name="y" placeholder="Введите значение [-5 ... 3]"
+                                     type="number" value="#{user.y}" min="-5" max="3">
+                            <f:validator validatorId="validatorY"/>
+                        </p:inputText>
+                    </div>
+                </div>
+                <div class="r_panel">
+                    <label class="form__label">R: </label>
+                    <div id="rRadio" class="form__row">
+                        <h:inputHidden id="R" name="r" value="#{user.r}">
+                            <f:validator validatorId="validatorR"/>
+                        </h:inputHidden>
+                            <input id="r-1" name="r" type="radio" value="1"/>
+                            <label for="r-1">1.0</label>
+                            <input id="r-1.5" name="r" type="radio" value="1.5"/>
+                            <label for="r-1.5">1.5</label>
+                            <input id="r-2" name="r" type="radio" value="2"/>
+                            <label for="r-2">2.0</label>
+                            <input id="r-2.5" name="r" type="radio" value="2.5"/>
+                            <label for="r-2.5">2.5</label>
+                            <input id="r-3" name="r" type="radio" value="3"/>
+                            <label for="r-3">3.0</label>
+                    </div>
+                </div>
+                <div>
+                    <p:commandButton id="submitBtn" type="submit" value="Отправить"
+                                     action="#{user.saveData()}" update="results-table attempt-count attempt-count-lose attempt-interval"
+                                     />
+                </div>
+                <div>
+                    <p:commandButton id="cleanBtn" value="Очистить"
+                                     action="#{user.clearTable()}" update="results-table" onclick="clearAttempt()"/>
+                </div>
+                <div>
+                    <label>Количество попыток:</label>
+                    <h:outputText id="attempt-count" value="#{user.counterBean.countHits}" />
+                </div>
+                <div>
+                    <label>Количество промахов:</label>
+                    <h:outputText id="attempt-count-lose" value="#{user.counterBean.loseHits}" />
+                </div>
+                <div>
+                    <label>Среднее время клика:</label>
+                    <h:outputText id="attempt-interval" value="#{user.clickIntervalBean.averageInterval}" />
+                </div>
+            </div>
+        </h:form>
+
+
+        <div class="main__table-block">
+            <p:dataTable id="results-table" tableStyleClass="main__table" var="result" value="#{user.resultList}"
+                         emptyMessage="">
+                <p:column headerText="X">
+                    <h:outputText value="#{result.x}" />
+                </p:column>
+
+                <p:column headerText="Y">
+                    <h:outputText value="#{result.y}" />
+                </p:column>
+
+                <p:column headerText="R">
+                    <h:outputText value="#{result.r}" />
+                </p:column>
+
+                <p:column headerText="Результат">
+                    <h:outputText value="#{result.hit}" />
+                </p:column>
+            </p:dataTable>
+        </div>
+        <h:button styleClass="btn_trash" outcome="index" value="Перейти на начальную страницу"/>
+    </ui:define>
+</ui:composition>
+
+</html>

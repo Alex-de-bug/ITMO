@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/templLayout.xhtml">
+    <ui:define name="head">
+        <title>Lab3 - Start page</title>
+        <h:outputStylesheet library="css" name="style.css" />
+    </ui:define>
+
+    <ui:define name="main">
+        <h1 class="">Лабораторная работа #3, вариант 2257, Дениченко Александр Олегович</h1>
+        <h:form styleClass="clock">
+            <h:outputText id="clock-gui" value="#{clock.time}"/>
+            <p:poll interval="11" update="clock-gui" listener="#{clock.updateTime}"/>
+        </h:form>
+        <div class="btn">
+            <h:button outcome="main" value="Перейти к попыткам"/>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>
