@@ -26,5 +26,6 @@
 
 - [Алгоритмы и структуры данных](https://github.com/Alex-de-bug/ITMO/tree/master/Algorithms-and-data-structures)
 - [Вычислительная математика](https://github.com/Alex-de-bug/ITMO/tree/master/Сomputational-mathematics)
+- [Архитектура компьютера](https://github.com/Alex-de-bug/risc-machine-emulator)
 </details>
 
