@@ -15,11 +15,10 @@
 </details>
 
 <details>
-
-<details>
 <summary>📚 3 семестр</summary>
 
 - [WEB программирование](https://github.com/Alex-de-bug/ITMO/tree/master/Web-programming)
+- [Языки программирования](https://github.com/Alex-de-bug/ITMO/tree/master/Programming-languages-itmo)
 </details>
 
 
