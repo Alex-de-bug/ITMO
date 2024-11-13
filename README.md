@@ -22,6 +22,5 @@
 - [WEB программирование](https://github.com/Alex-de-bug/ITMO/tree/master/Web-programming)
 </details>
 
-<details>
 
 
