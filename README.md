@@ -25,5 +25,6 @@
 <summary>📚 4 семестр</summary>
 
 - [Алгоритмы и структуры данных](https://github.com/Alex-de-bug/ITMO/tree/master/Algorithms-and-data-structures)
+- [Вычислительная математика](https://github.com/Alex-de-bug/ITMO/tree/master/Сomputational-mathematics)
 </details>
 

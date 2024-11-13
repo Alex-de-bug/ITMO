@@ -1,0 +1,90 @@
+2024-04-30 18:22:52,497 INFO o.s.b.StartupInfoLogger [main] Starting Web4Application using Java 20.0.1 with PID 24028 (/Users/alexalex/Desktop/cm_math/lab5/cm5/target/classes started by alexalex in /Users/alexalex/Desktop/cm_math/lab5/cm5)
+2024-04-30 18:22:52,498 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-04-30 18:22:52,814 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2024-04-30 18:22:52,824 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-30 18:22:52,825 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
+2024-04-30 18:22:52,825 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.15]
+2024-04-30 18:22:52,863 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2024-04-30 18:22:52,864 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 350 ms
+2024-04-30 18:22:52,980 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2024-04-30 18:22:52,988 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2024-04-30 18:22:52,992 INFO o.s.b.StartupInfoLogger [main] Started Web4Application in 0.759 seconds (process running for 1.102)
+2024-04-30 18:23:50,554 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-30 18:23:50,556 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2024-04-30 18:23:50,558 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 2 ms
+2024-04-30 18:23:50,630 INFO c.e.w.c.AttemptController [http-nio-8080-exec-2] Тип: 1
+2024-04-30 18:23:50,630 INFO c.e.w.c.AttemptController [http-nio-8080-exec-2] Аргумент: 5.0
+2024-04-30 18:23:50,630 INFO c.e.w.c.AttemptController [http-nio-8080-exec-2] Функция: 0; A: 0.0; B: 10.0; Step: 1.0
+2024-04-30 18:23:50,632 INFO c.e.w.m.Lagrange [http-nio-8080-exec-2] 1.4562891143583228
+2024-04-30 18:23:50,634 INFO c.e.w.m.Gauss [http-nio-8080-exec-2] Forward interpolation
+2024-04-30 18:23:50,634 INFO c.e.w.m.Stirling [http-nio-8080-exec-2] 0.0
+2024-04-30 18:23:50,634 INFO c.e.w.m.Bessel [http-nio-8080-exec-2] 0.0
+2024-04-30 18:24:34,775 INFO c.e.w.c.AttemptController [http-nio-8080-exec-3] Тип: 1
+2024-04-30 18:24:34,782 INFO c.e.w.c.AttemptController [http-nio-8080-exec-3] Аргумент: 5.0
+2024-04-30 18:24:34,783 INFO c.e.w.c.AttemptController [http-nio-8080-exec-3] Функция: 0; A: 0.0; B: 10.0; Step: 1.0
+2024-04-30 18:24:34,784 INFO c.e.w.m.Lagrange [http-nio-8080-exec-3] 1.4562891143583228
+2024-04-30 18:24:34,784 INFO c.e.w.m.Gauss [http-nio-8080-exec-3] Forward interpolation
+2024-04-30 18:24:34,785 INFO c.e.w.m.Stirling [http-nio-8080-exec-3] 0.0
+2024-04-30 18:24:34,785 INFO c.e.w.m.Bessel [http-nio-8080-exec-3] 0.0
+2024-04-30 18:25:39,992 INFO c.e.w.c.AttemptController [http-nio-8080-exec-5] Тип: 1
+2024-04-30 18:25:39,996 INFO c.e.w.c.AttemptController [http-nio-8080-exec-5] Аргумент: 1.2
+2024-04-30 18:25:39,997 INFO c.e.w.c.AttemptController [http-nio-8080-exec-5] Функция: 0; A: 0.0; B: 10.0; Step: 1.0
+2024-04-30 18:25:39,997 INFO c.e.w.m.Lagrange [http-nio-8080-exec-5] 3.6630902935600513
+2024-04-30 18:25:39,997 INFO c.e.w.m.Gauss [http-nio-8080-exec-5] Forward interpolation
+2024-04-30 18:25:39,997 INFO c.e.w.m.Stirling [http-nio-8080-exec-5] -3.8
+2024-04-30 18:25:39,997 INFO c.e.w.m.Bessel [http-nio-8080-exec-5] -3.8
+2024-04-30 18:26:08,373 INFO c.e.w.c.AttemptController [http-nio-8080-exec-6] Тип: 1
+2024-04-30 18:26:08,374 INFO c.e.w.c.AttemptController [http-nio-8080-exec-6] Аргумент: 5.2
+2024-04-30 18:26:08,385 INFO c.e.w.c.AttemptController [http-nio-8080-exec-6] Функция: 0; A: 0.0; B: 9.0; Step: 1.0
+2024-04-30 18:26:08,386 INFO c.e.w.m.Lagrange [http-nio-8080-exec-6] 1.6704656469686578
+2024-04-30 18:26:08,387 INFO c.e.w.m.Gauss [http-nio-8080-exec-6] Backward interpolation
+2024-04-30 18:26:08,388 INFO c.e.w.m.Stirling [http-nio-8080-exec-6] 0.20000000000000018
+2024-04-30 18:26:08,388 INFO c.e.w.m.Bessel [http-nio-8080-exec-6] 0.20000000000000018
+2024-04-30 18:26:13,890 INFO c.e.w.c.AttemptController [http-nio-8080-exec-7] Тип: 1
+2024-04-30 18:26:13,892 INFO c.e.w.c.AttemptController [http-nio-8080-exec-7] Аргумент: 4.2
+2024-04-30 18:26:13,893 INFO c.e.w.c.AttemptController [http-nio-8080-exec-7] Функция: 0; A: 0.0; B: 9.0; Step: 1.0
+2024-04-30 18:26:13,893 INFO c.e.w.m.Lagrange [http-nio-8080-exec-7] 2.183168430575911
+2024-04-30 18:26:13,894 INFO c.e.w.m.Gauss [http-nio-8080-exec-7] Forward interpolation
+2024-04-30 18:26:13,894 INFO c.e.w.m.Stirling [http-nio-8080-exec-7] -0.7999999999999998
+2024-04-30 18:26:13,894 INFO c.e.w.m.Bessel [http-nio-8080-exec-7] -0.7999999999999998
+2024-04-30 18:26:30,385 INFO c.e.w.c.AttemptController [http-nio-8080-exec-8] Тип: 1
+2024-04-30 18:26:30,387 INFO c.e.w.c.AttemptController [http-nio-8080-exec-8] Аргумент: 4.32
+2024-04-30 18:26:30,387 INFO c.e.w.c.AttemptController [http-nio-8080-exec-8] Функция: 0; A: 0.0; B: 9.0; Step: 1.0
+2024-04-30 18:26:30,387 INFO c.e.w.m.Lagrange [http-nio-8080-exec-8] 1.969095240140687
+2024-04-30 18:26:30,388 INFO c.e.w.m.Gauss [http-nio-8080-exec-8] Forward interpolation
+2024-04-30 18:26:30,388 INFO c.e.w.m.Stirling [http-nio-8080-exec-8] -0.6799999999999997
+2024-04-30 18:35:03,427 INFO c.e.w.c.AttemptController [http-nio-8080-exec-1] Тип: 1
+2024-04-30 18:35:03,430 INFO c.e.w.c.AttemptController [http-nio-8080-exec-1] Аргумент: 2.32
+2024-04-30 18:35:03,431 INFO c.e.w.c.AttemptController [http-nio-8080-exec-1] Функция: 0; A: 0.0; B: 4.0; Step: 1.21
+2024-04-30 18:35:03,431 INFO c.e.w.m.Lagrange [http-nio-8080-exec-1] 5.233291641480149
+2024-04-30 18:35:03,432 INFO c.e.w.m.Gauss [http-nio-8080-exec-1] Backward interpolation
+2024-04-30 18:35:03,432 INFO c.e.w.m.Stirling [http-nio-8080-exec-1] -0.08264462809917363
+2024-04-30 18:35:03,432 INFO c.e.w.m.Bessel [http-nio-8080-exec-1] -0.08264462809917363
+2024-04-30 18:35:09,076 INFO c.e.w.c.AttemptController [http-nio-8080-exec-2] Тип: 1
+2024-04-30 18:35:09,077 INFO c.e.w.c.AttemptController [http-nio-8080-exec-2] Аргумент: 2.32
+2024-04-30 18:35:09,078 INFO c.e.w.c.AttemptController [http-nio-8080-exec-2] Функция: 0; A: 0.0; B: 4.0; Step: 0.21
+2024-04-30 18:35:09,079 INFO c.e.w.m.Lagrange [http-nio-8080-exec-2] 5.475184211269815
+2024-04-30 18:35:09,080 INFO c.e.w.m.Gauss [http-nio-8080-exec-2] Backward interpolation
+2024-04-30 18:35:09,080 INFO c.e.w.m.Stirling [http-nio-8080-exec-2] 1.0476190476190466
+2024-04-30 18:35:09,081 INFO c.e.w.m.Bessel [http-nio-8080-exec-2] 1.0476190476190466
+2024-04-30 18:35:20,422 INFO c.e.w.c.AttemptController [http-nio-8080-exec-3] Тип: 1
+2024-04-30 18:35:20,432 INFO c.e.w.c.AttemptController [http-nio-8080-exec-3] Аргумент: 2.32
+2024-04-30 18:35:20,432 INFO c.e.w.c.AttemptController [http-nio-8080-exec-3] Функция: 0; A: 0.0; B: 10.0; Step: 0.21
+2024-04-30 18:35:20,434 INFO c.e.w.m.Lagrange [http-nio-8080-exec-3] 5.475061051660816
+2024-04-30 18:35:20,437 INFO c.e.w.m.Gauss [http-nio-8080-exec-3] Forward interpolation
+2024-04-30 18:35:20,439 INFO c.e.w.m.Stirling [http-nio-8080-exec-3] -12.952380952380954
+2024-04-30 18:35:20,439 INFO c.e.w.m.Bessel [http-nio-8080-exec-3] -12.952380952380954
+2024-04-30 18:35:40,924 INFO c.e.w.c.AttemptController [http-nio-8080-exec-4] Тип: 1
+2024-04-30 18:35:40,926 INFO c.e.w.c.AttemptController [http-nio-8080-exec-4] Аргумент: 2.32
+2024-04-30 18:35:40,936 INFO c.e.w.c.AttemptController [http-nio-8080-exec-4] Функция: 0; A: 0.0; B: 10.0; Step: 0.11
+2024-04-30 18:35:40,943 INFO c.e.w.m.Lagrange [http-nio-8080-exec-4] 5.475065098347041
+2024-04-30 18:35:40,951 INFO c.e.w.m.Gauss [http-nio-8080-exec-4] Forward interpolation
+2024-04-30 18:35:40,962 INFO c.e.w.m.Stirling [http-nio-8080-exec-4] -23.90909090909092
+2024-04-30 18:35:40,962 INFO c.e.w.m.Bessel [http-nio-8080-exec-4] -23.90909090909092
+2024-04-30 18:40:12,062 INFO c.e.w.c.AttemptController [http-nio-8080-exec-6] Тип: 1
+2024-04-30 18:40:12,067 INFO c.e.w.c.AttemptController [http-nio-8080-exec-6] Аргумент: 0.0
+2024-04-30 18:40:12,068 INFO c.e.w.c.AttemptController [http-nio-8080-exec-6] Функция: 0; A: 0.0; B: 10.0; Step: 1.0
+2024-04-30 18:40:12,068 INFO c.e.w.m.Lagrange [http-nio-8080-exec-6] 1.0
+2024-04-30 18:40:12,069 INFO c.e.w.m.Gauss [http-nio-8080-exec-6] Forward interpolation
+2024-04-30 18:40:12,069 INFO c.e.w.m.Stirling [http-nio-8080-exec-6] -5.0
+2024-04-30 18:40:12,069 INFO c.e.w.m.Bessel [http-nio-8080-exec-6] -5.0
