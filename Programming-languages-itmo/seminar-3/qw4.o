@@ -1,0 +1,2 @@
+%line 3+1 qw4.asm
+mov rax, (rcx * 3 + 23)

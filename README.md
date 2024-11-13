@@ -21,5 +21,9 @@
 - [Языки программирования](https://github.com/Alex-de-bug/ITMO/tree/master/Programming-languages-itmo)
 </details>
 
+<details>
+<summary>📚 4 семестр</summary>
 
+- [Алгоритмы и структуры данных](https://github.com/Alex-de-bug/ITMO/tree/master/Algorithms-and-data-structures)
+</details>
 

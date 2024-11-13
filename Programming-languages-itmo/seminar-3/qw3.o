@@ -1,0 +1,2 @@
+%line 3+1 qw3.asm
+mov rax, (9 * 3 + 23)

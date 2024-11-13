@@ -1,0 +1,279 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc} %кодировка
+\usepackage[T2A]{fontenc}
+\usepackage[english,russian]{babel} %русификатор 
+\usepackage{mathtools} %библиотека матеши
+\usepackage[left=1cm,right=1cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry} %изменение отступов на листе
+\usepackage{amsmath}
+\usepackage{graphicx} %библиотека для графики и картинок
+\graphicspath{}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\usepackage{subcaption}
+\usepackage{pgfplots}
+\usepackage{listings}
+\usepackage{color}
+
+
+\newcommand{\descr}[2]{%
+    \textbf{Описание: } #1\\
+    \textbf{Сложность: } #2
+}
+
+\begin{document}
+% НАЧАЛО ТИТУЛЬНОГО ЛИСТА
+\begin{center}
+    \Large
+    Федеральное государственное автономное \\
+    образовательное учреждение высшего образования \\ 
+    «Научно-образовательная корпорация ИТМО»\\
+    \vspace{0.5cm}
+    \large
+    Факультет программной инженерии и компьютерной техники \\
+    Направление подготовки 09.03.04 Программная инженерия \\
+    \vspace{1cm}
+    \Large
+    \textbf{Отчёт по лабораторной работе №4} \\
+    По дисциплине «Алгоритмы и структуры данных» (4 семестр)\\
+    Четвёртый блок задач\\
+    \large
+    \vspace{8cm}
+
+    \begin{minipage}{.33\textwidth}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{.4\textwidth}
+    
+        \textbf{Студент}: \vspace{.1cm} \\
+        \ Дениченко Александр P3212 \vspace{.1cm}\\
+        \textbf{Преподаватели}:  \vspace{.1cm}\\
+        \ Косяков М.С. \\
+        \ Тараканов Д.С.
+    \end{minipage}
+    \vfill
+Санкт-Петербург\\ 2024 г.
+\end{center}
+
+% КОНЕЦ ТИТУЛЬНОГО ЛИСТА 
+\newpage
+
+\section{Задача №M «Цивилизация»}
+\begin{lstlisting}[language=C++, frame=single, basicstyle=\ttfamily, numbers=left, numberstyle=\tiny]
+#include <iostream>
+#include <queue>
+#include <list>
+#include <vector>
+
+using namespace std;   
+
+struct Node {
+    int cost;
+    int marked;
+    int x;
+    int y;
+    int predecessor;
+
+    Node(int cost = -1, int marked = 0, int x = -1, int y = -1, int pred = -1) 
+        : cost(cost), marked(marked), x(x), y(y), predecessor(pred) {}
+
+    bool operator>(const Node& other) const {
+        return this->cost > other.cost;
+    }
+};
+
+using NodeQueue = priority_queue<Node, vector<Node>, greater<Node> >;
+
+int main() {
+    int N, M, start_x, start_y, finish_x, finish_y;
+    cin >> N >> M >> start_x >> start_y >> finish_x >> finish_y;
+    start_x--;
+    start_y--;
+    finish_x--;
+    finish_y--;
+    int size = N * M;
+
+    vector<vector<pair<int, int> > > map(N, vector<pair<int, int> >(M));
+
+    string tmp;
+    for (int i = 0; i < N; i++) {
+        cin >> tmp;
+        for (int j = 0; j < M; j++) {
+            if (tmp[j] == '.') {
+                map[i][j].first = 1;
+                map[i][j].second = 0;
+            } else if (tmp[j] == 'W') {
+                map[i][j].first = 2;
+                map[i][j].second = 0;
+            } else {
+                map[i][j].first = 666;
+                map[i][j].second = 0;
+            }
+        }
+    }
+
+    NodeQueue pq_sorted;
+    vector<Node> visited(size);
+
+    pq_sorted.push(Node(0, 1, start_x, start_y));
+    visited[start_x * M + start_y] = Node(0, 1, start_x, start_y, -1);
+
+    while (true) {
+        if(pq_sorted.empty()) break;
+        Node curr = pq_sorted.top();
+        pq_sorted.pop();
+
+        int curr_index = curr.x * M + curr.y;
+        if (curr_index == finish_x * M + finish_y) break;
+
+        
+        int new_y = curr.y-1;
+        if (new_y >= 0 && new_y < M && map[curr.x][new_y].first != 666 && !map[curr.x][new_y].second) {
+            int new_cost = curr.cost + map[curr.x][new_y].first;
+            int next_index = curr.x * M + new_y;
+            if (visited[next_index].cost == -1 || visited[next_index].cost > new_cost) {
+                pq_sorted.push(Node(new_cost, 1, curr.x, new_y, curr_index));
+                visited[next_index] = Node(new_cost, 1, curr.x, new_y, curr_index);
+                map[curr.x][new_y].second = 1;
+            }
+        }
+        
+        new_y = curr.y+1;
+        if (new_y >= 0 && new_y < M && map[curr.x][new_y].first != 666 && !map[curr.x][new_y].second) {
+            int new_cost = curr.cost + map[curr.x][new_y].first;
+            int next_index = curr.x * M + new_y;
+            if (visited[next_index].cost == -1 || visited[next_index].cost > new_cost) {
+                pq_sorted.push(Node(new_cost, 1, curr.x, new_y, curr_index));
+                visited[next_index] = Node(new_cost, 1, curr.x, new_y, curr_index);
+                map[curr.x][new_y].second = 1;
+            }
+        }
+
+        int new_x = curr.x-1;
+        if (new_x >= 0 && new_x < N && map[new_x][curr.y].first != 666 && !map[new_x][curr.y].second) {
+            int new_cost = curr.cost + map[new_x][curr.y].first;
+            int next_index = new_x * M + curr.y;
+            if (visited[next_index].cost == -1 || visited[next_index].cost > new_cost) {
+                pq_sorted.push(Node(new_cost, 1, new_x, curr.y, curr_index));
+                visited[next_index] = Node(new_cost, 1, new_x, curr.y, curr_index);
+                map[new_x][curr.y].second = 1;
+            }
+        }
+
+        new_x = curr.x+1;
+        if (new_x >= 0 && new_x < N && map[new_x][curr.y].first != 666 && !map[new_x][curr.y].second) {
+            int new_cost = curr.cost + map[new_x][curr.y].first;
+            int next_index = new_x * M + curr.y;
+            if (visited[next_index].cost == -1 || visited[next_index].cost > new_cost) {
+                pq_sorted.push(Node(new_cost, 1, new_x, curr.y, curr_index));
+                visited[next_index] = Node(new_cost, 1, new_x, curr.y, curr_index);
+                map[new_x][curr.y].second = 1;
+            }
+        }
+
+    }
+
+    
+    if (visited[finish_x * M + finish_y].cost == -1){
+        cout << visited[finish_x * M + finish_y].cost << endl;
+        return 0;
+    } 
+
+    string way;
+    int curr = finish_x * M + finish_y;
+    while (curr != -1 && visited[curr].predecessor != -1) {
+        int pred = visited[curr].predecessor;
+        int diff = curr - pred;
+        if (diff == 1) way = 'E' + way;   
+        else if (diff == -1) way = 'W' + way; 
+        else if (diff == M) way = 'S' + way; 
+        else if (diff == -M) way = 'N' + way;
+        curr = pred;
+    }
+    
+    cout << visited[finish_x * M + finish_y].cost << endl;
+    cout << way;
+    return 0;
+}
+\end{lstlisting}
+\descr{В начале было сложно понять, что и как эту задачу решать. Но после просмотра нескольких лекций на тему графы, выбор пал на алгоритм Дейкстры. Создаются структуры для хранения узлов сетки, каждый узел инициализируется начальной стоимостью, состоянием и координатами. Далее извлекаем узел с минимальной стоимостью из очереди с приоритетами и рассматривает его соседей клеткой. 
+Если переход в соседний узел уменьшает стоимость пути, узел добавляется в очередь с обновленной стоимостью. В конце можно легко восстановить путь от целевой точки.}{
+    Сложность алгоритма Дейкстры составляет \( O((V + E) \log V) \), где \( V \) — количество вершин (узлов) в графе, а \( E \) — количество ребер (связей между узлами). 
+    В контексте сетки размером \( N \times M \):
+    \( V = N \times M \); \( E \) приблизительно равно \( 4 \times V \) (поскольку каждый узел связан с четырьмя соседями).
+    Таким образом, сложность алгоритма для сетки составляет \( O((N \times M + 4 \times N \times M) \log (N \times M)) \) или \( O(N \times M \log (N \times M)) \).
+}\\
+
+\section{Задача №O «Долой списывание!»}
+\begin{lstlisting}[language=C++, frame=single, basicstyle=\ttfamily, numbers=left, numberstyle=\tiny]
+#include <iostream>
+#include <vector>
+#include <stack>
+using namespace std;
+
+vector<vector<int> > graph;
+int colors[101] = {0};
+
+bool dfs(int start){
+    stack<pair<int, int> > s;
+    pair<int, int> tmp;
+    tmp.first = start;
+    tmp.second = 1;
+    s.push(tmp);
+
+    while (!s.empty()) {
+        pair<int, int> top = s.top(); s.pop();
+        int v = top.first;
+        int color = top.second;
+
+        if (colors[v] == 0) {
+            colors[v] = color;
+        }
+
+        for (int next : graph[v]) {
+            if (colors[next] == 0) { 
+                tmp.first = next;
+                if(color == 1){
+                    tmp.second = 2;
+                }else{
+                    tmp.second = 1;
+                }
+                s.push(tmp);
+            } else if (colors[next] == color) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+int main() {
+    int N, M, x1, x2;
+    cin >> N >> M;
+    graph.resize(N+1);  
+
+    for (int i = 0; i < M; i++){
+        cin >> x1 >> x2;
+        graph[x1].push_back(x2);
+        graph[x2].push_back(x1);
+    }
+
+    for (int i = 0; i < N; i++){
+        if (colors[i] == 0 && !dfs(i)) {
+            cout << "NO";
+            return 0; 
+        }
+    }
+
+    cout << "YES"; 
+    return 0;
+}
+    
+\end{lstlisting}
+\descr{Задача относительно проста, быстро додумался что нужно простро проверить граф на двудольность, вспомнит Полякова с его дискреткой и раскроской графа (все цвета можно взять у человека для раскраски, допустим из уха и из носа будет достаточно для этой задачи). 
+Был использован DFS при помощи явного стека (увидел на википедии что-то подобное и решил попробовать использовать суть). Каждый узел представлен парой, где first — это идентификатор узла, а second — цвет для назначения (либо 1, либо 2). 
+Проходимся по каждой вершине и если вершина еще не окрашена (colors[v] == 0), то ей присваивается цвет и она помещается в стек.
+Пока стек не пуст, программа проверяет каждую вершину v, проверяет её цвет и пытается покрасить смежные вершины в альтернативный цвет. 
+Если она встречает смежную вершину, уже окрашенную в тот же цвет, что и v, граф не является двудольным.
+}{Операция DFS имеет временную сложность \( O(V + E) \), где \( V \) — количество вершин, а \( E \) — количество ребер.
+}
+
+\end{document}
